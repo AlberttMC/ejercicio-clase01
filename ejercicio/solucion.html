@@ -1,4 +1,11 @@
 <html>
+	<head>
+	<style>
+		h3 {text-align: center;}
+		p {text-align: center;}
+		div {text-align: center;}
+</style>
+	</head>
     <body>
         <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
         <script>
@@ -6,20 +13,57 @@
         </script>
 
 
-        <h5>Ejemplo 02</h5>
+        <h3>Ejercicio-clase01: Diagrama PSM</h3>
         <div class="mermaid">
-          classDiagram
-    class BankAccount
-    BankAccount : +String id
-    BankAccount : +Bigdecimal balance
-    BankAccount : +deposit(amount)
-    BankAccount : +withdrawal(amount)
+         classDiagram
+		 direction LR
+		 
+			class tipo_deporte{
+			&#60;&#60;enumeration&#62;&#62; 
+			Football
+			Basketball
+			Tennis
+			Volleyball}
+			
+			
+			class Equipo{
+			+nombre : String
+			+tipo_deporte : tipo_deporte
+			+siglas : String
+			+setNombre(nombre String)
+			+getNombre() String
+			+setTipo_Deporte(tipo_deporte tipo_deporte)
+			+getTipo_Deporte() tipo_deporte
+			+setSiglas(siglas String)
+			+getSiglas() String
+			}
+			
+			
+			class Jugador{
+			+nombre : String
+			+apellido : String
+			+setNombre(nombre String)
+			+getNombre() String
+			+setApellido(nombre String)
+			+getApellido() String 
+			}
+			
+			class Sancion {
+			+obserbacion : String
+			+multa : Short
+			+setObservacion(observacion String)
+			+getObservacion() String
+			+setMulta(multa Short)
+			+getMulta() Short 
+			}
+			
+			
+			
+			tipo_deporte .. Equipo 
+			Equipo "1" --> "*" Jugador 
+			Jugador "1" --> "*" Sancion 
+			
 
-    class Persona
-    Persona : +String suNombre
-	Persona : +int suEdad
-    
-    Persona "1" --> "*" BankAccount
 
         </div>
     </body>
